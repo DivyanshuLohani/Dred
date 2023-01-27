@@ -1,4 +1,5 @@
 workspace " Engine"
+architecture "x64"
 
 configurations { "Debug",
     "Release",
@@ -63,7 +64,7 @@ project "Sandbox"
     }
 
     includedirs {
-        "%{prj.name}/vendor/spdlog/include/",
+        "Engine/vendor/spdlog/include/",
         "Engine/src"
     }
 
