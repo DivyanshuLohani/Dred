@@ -9,3 +9,5 @@
 #else
 	#error Engine Only supported on windows
 #endif // ENGINE_WINDOWS_BUILD
+
+#define BIT(x) (1 << x)
