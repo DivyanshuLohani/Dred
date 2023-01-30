@@ -1,5 +1,6 @@
 #pragma once
 #include "Core.h";
+#include "Window.h";
 
 namespace Engine {
 
@@ -11,7 +12,8 @@ namespace Engine {
 		virtual ~Application();
 
 	private:
-
+		std::unique_ptr<Window> m_Window;
+		bool running = true;
 	};
 
 	Application* CreateApplication();

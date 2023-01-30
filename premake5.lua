@@ -8,6 +8,11 @@ configurations { "Debug",
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+IncludeDir = {}
+IncludeDir["GLFW"] = "Engine/vendor/GLFW/include"
+
+include "Engine/vendor/GLFW"
+
 project "Engine"
     location "Engine"
     kind "SharedLib"
@@ -25,8 +30,15 @@ project "Engine"
 
     includedirs {
         "%{prj.name}/vendor/spdlog/include/",
+        "%{prj.name}/vendor/GLFW/include/",
         "%{prj.name}/src/",
     }
+
+    links 
+	{ 
+		"GLFW",
+		"opengl32.lib"
+	}
 
     filter "system:windows"
         cppdialect "C++17"
