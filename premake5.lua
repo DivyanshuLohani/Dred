@@ -1,4 +1,4 @@
-workspace " Engine"
+workspace "Engine"
 architecture "x64"
 
 configurations { "Debug",
