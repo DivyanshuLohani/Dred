@@ -50,7 +50,7 @@ namespace Engine {
 
 	class EventDispatcher {
 		template<typename T>
-		using EventFn = std::function<bool>(T&);
+		using EventFn = std::function<bool(T&)>;
 
 	public:
 		EventDispatcher(Event& event) 
