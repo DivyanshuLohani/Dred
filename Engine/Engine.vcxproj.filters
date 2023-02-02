@@ -7,6 +7,9 @@
     <Filter Include="Engine\Events">
       <UniqueIdentifier>{5FAFB439-CB6F-3070-94AA-79ED002A754C}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\Layers">
+      <UniqueIdentifier>{3A9A9748-A65A-137F-6F95-5CFCDB14585B}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Engine\Platform">
       <UniqueIdentifier>{8F0ABC95-FB95-295A-04A7-AC4E70B1855A}</UniqueIdentifier>
     </Filter>
@@ -34,6 +37,12 @@
     <ClInclude Include="src\Engine\Events\MouseEvent.h">
       <Filter>Engine\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Engine\Layers\Layer.h">
+      <Filter>Engine\Layers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Layers\LayerStack.h">
+      <Filter>Engine\Layers</Filter>
+    </ClInclude>
     <ClInclude Include="src\Engine\Log.h">
       <Filter>Engine</Filter>
     </ClInclude>
@@ -44,12 +53,16 @@
       <Filter>Engine</Filter>
     </ClInclude>
     <ClInclude Include="src\pre.h" />
-    <ClInclude Include="src\Engine\Layers\Layer.h" />
-    <ClInclude Include="src\Engine\Layers\LayerStack.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Engine\Application.cpp">
       <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Layers\Layer.cpp">
+      <Filter>Engine\Layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Layers\LayerStack.cpp">
+      <Filter>Engine\Layers</Filter>
     </ClCompile>
     <ClCompile Include="src\Engine\Log.cpp">
       <Filter>Engine</Filter>
@@ -58,7 +71,5 @@
       <Filter>Engine\Platform</Filter>
     </ClCompile>
     <ClCompile Include="src\pre.cpp" />
-    <ClCompile Include="src\Engine\Layers\Layer.cpp" />
-    <ClCompile Include="src\Engine\Layers\LayerStack.cpp" />
   </ItemGroup>
 </Project>
