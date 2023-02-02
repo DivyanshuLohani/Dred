@@ -17,6 +17,11 @@ namespace Engine {
 	}
 	void Application::Run() {
 		while (running) {
+
+			for (Layer* layer : m_layerStack) {
+				layer->OnUpdate();
+			}
+
 			m_Window->OnUpdate();
 		}
 	}
@@ -26,7 +31,22 @@ namespace Engine {
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClose));
 
-		EN_CORE_INFO(e.ToString());
+		for (auto it = m_layerStack.end(); it != m_layerStack.begin(); ) {
+			(*--it)->OnEvent(e);
+			if (e.Handled) break;
+		}
+
+		EN_CORE_TRACE(e.ToString());
+	}
+
+	void Application::PushLayer(Layer* layer)
+	{
+		m_layerStack.PushLayer(layer);
+	}
+	
+	void Application::PushOverlay(Layer* layer)
+	{
+		m_layerStack.PushOverlay(layer);
 	}
 	
 	bool Application::OnWindowClose(WindowCloseEvent& e) 

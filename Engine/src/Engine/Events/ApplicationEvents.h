@@ -55,4 +55,40 @@ namespace Engine {
 		EVENT_CLASS_CATEGORY(EventCategoryApplication)
 		EVENT_CLASS_TYPE(AppRenderer)
 	};
+
+	class ENGINE_API WindowFocusEvent : public Event {
+	public:
+		WindowFocusEvent() {};
+		
+		EVENT_CLASS_CATEGORY(EventCategoryApplication)
+		EVENT_CLASS_TYPE(WindowFocus)
+	};
+	
+	class ENGINE_API WindowLostFocusEvent : public Event {
+	public:
+		WindowLostFocusEvent() {};
+		
+		EVENT_CLASS_CATEGORY(EventCategoryApplication)
+		EVENT_CLASS_TYPE(WindowLostFocus)
+	};
+	
+	class ENGINE_API WindowMoveEvent : public Event {
+	public:
+		WindowMoveEvent(int xPos, int yPos) 
+			: m_windowX(xPos), m_windowY(yPos) {};
+		
+		inline int GetX() const { return m_windowX; }
+		inline int GetY() const { return m_windowY; }
+
+		std::string ToString() const override {
+			std::stringstream ss;
+			ss << "WindowMoveEvent: " << m_windowX << ", " << m_windowY;
+			return ss.str();
+		}
+
+		EVENT_CLASS_CATEGORY(EventCategoryApplication)
+		EVENT_CLASS_TYPE(WindowMoved)
+	private:
+		int m_windowX, m_windowY;
+	};
 }

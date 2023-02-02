@@ -4,16 +4,16 @@
 class Sandbox : public Engine::Application
 {
 public:
-	Sandbox() {
+    Sandbox() {
 
-	}
-	~Sandbox() {
+    }
+    ~Sandbox() {
 
-	}
+    }
 
 };
 
 
 Engine::Application* Engine::CreateApplication() {
-	return new Sandbox();
+    return new Sandbox();
 }

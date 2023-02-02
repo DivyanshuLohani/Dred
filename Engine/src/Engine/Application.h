@@ -2,6 +2,7 @@
 #include "Core.h";
 #include "Window.h";
 #include "Engine/Events/ApplicationEvents.h";
+#include "Engine/Layers/LayerStack.h";
 
 namespace Engine {
 
@@ -15,11 +16,15 @@ namespace Engine {
 
 		void Run();
 		void OnEvent(Event& e);
-
+		
+		void PushLayer(Layer* layer);
+		void PushOverlay(Layer* layer);
 	private:
 		std::unique_ptr<Window> m_Window;
 		bool running = true;
 		bool OnWindowClose(WindowCloseEvent& e);
+
+		LayerStack m_layerStack;
 	};
 
 	Application* CreateApplication();

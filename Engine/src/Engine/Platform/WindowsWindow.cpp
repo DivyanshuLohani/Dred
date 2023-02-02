@@ -120,6 +120,25 @@ namespace Engine{
 			data.EventCallback(event);
 		});
 
+		glfwSetWindowFocusCallback(m_Window, [](GLFWwindow* window, int focused) 
+		{
+			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+			if (focused == GLFW_TRUE) {
+				WindowFocusEvent event;
+				data.EventCallback(event);
+			}
+			else {
+				WindowLostFocusEvent event;
+				data.EventCallback(event);
+			}
+		});
+		
+		glfwSetWindowPosCallback(m_Window, [](GLFWwindow* window, int xpos, int ypos) {
+			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);	
+			WindowMoveEvent event(xpos, ypos);
+			data.EventCallback(event);
+		});
+
 	}
 
 	WindowsWindow::~WindowsWindow() {
