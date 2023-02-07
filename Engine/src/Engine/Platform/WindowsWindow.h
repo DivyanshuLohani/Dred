@@ -14,12 +14,14 @@ namespace Engine{
 
 		void OnUpdate() override;
 
-		inline unsigned int GetHeight() const override { return m_Data.width; }
-		inline unsigned int GetWidth() const override { return m_Data.height; }
+		inline unsigned int GetHeight() const override { return m_Data.height; }
+		inline unsigned int GetWidth() const override { return m_Data.width; }
 
 		inline void SetEventCallback(const EventCallbackFn& callback) override { m_Data.EventCallback = callback; }
 		void SetVsync(bool enable) override;
 		bool IsVsync() const override;
+		void SetClipboard(const char* text) const override;
+		const char* GetClipboard() const override;
 
 	private:
 		virtual void Init(const WindowProps& props);

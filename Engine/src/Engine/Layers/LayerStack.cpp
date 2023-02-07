@@ -17,11 +17,13 @@ namespace Engine {
 	void LayerStack::PushLayer(Layer* layer)
 	{
 		m_LayersInsert = m_Layers.emplace(m_LayersInsert, layer);
+		layer->OnAttach();
 	}
 
 	void LayerStack::PushOverlay(Layer* layer)
 	{
 		m_Layers.emplace_back(layer);
+		layer->OnAttach();
 	}
 
 	void LayerStack::PopLayer(Layer* layer)

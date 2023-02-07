@@ -69,6 +69,7 @@ namespace Engine{
 
 		});
 
+		// ----------------- Keybaord Callbacks ------------------------ // 
 		glfwSetKeyCallback(m_Window, [](GLFWwindow* window, int key, int scancode, int action, int mods) {
 
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
@@ -95,6 +96,14 @@ namespace Engine{
 			}
 		});
 
+		glfwSetCharCallback(m_Window, [](GLFWwindow* window, unsigned int character) {
+			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+			KeyTypedEvent event(character);
+			data.EventCallback(event);
+		});
+		// ----------- Keyboard Callbacks End ----------------- // 
+
+		// ---------------- Mouse Callbacks ------------------ //
 		glfwSetMouseButtonCallback(m_Window, [](GLFWwindow* window, int button, int action, int mods) {
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 			
@@ -125,7 +134,9 @@ namespace Engine{
 			MouseMovedEvent event((float)xpos, (float)ypos);
 			data.EventCallback(event);
 		});
+		// ---------------- Mouse Callbacks End ------------------ //
 
+		// ---------------- Window Callbacks ----------------- // 
 		glfwSetWindowFocusCallback(m_Window, [](GLFWwindow* window, int focused) 
 		{
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
@@ -144,6 +155,8 @@ namespace Engine{
 			WindowMoveEvent event(xpos, ypos);
 			data.EventCallback(event);
 		});
+
+		// ------------- Window Callbacks End -------------- //
 
 	}
 
@@ -174,6 +187,16 @@ namespace Engine{
 	bool WindowsWindow::IsVsync() const
 	{
 		return m_Data.vSync;
+	}
+
+	void WindowsWindow::SetClipboard(const char* text) const
+	{
+		glfwSetClipboardString(m_Window, text);
+	}
+
+	const char* WindowsWindow::GetClipboard() const
+	{
+		return glfwGetClipboardString(m_Window);
 	}
 
 	void WindowsWindow::ShutDown()

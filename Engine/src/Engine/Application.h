@@ -6,7 +6,7 @@
 
 namespace Engine {
 
-#define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
+
 
 	class ENGINE_API Application
 	{
@@ -19,12 +19,17 @@ namespace Engine {
 		
 		void PushLayer(Layer* layer);
 		void PushOverlay(Layer* layer);
+
+		inline static Application& Get() { return *s_Instance; }
+		inline Window& GetWindow() { return *m_Window; };
 	private:
 		std::unique_ptr<Window> m_Window;
 		bool running = true;
 		bool OnWindowClose(WindowCloseEvent& e);
-
 		LayerStack m_layerStack;
+
+	private:
+		static Application* s_Instance;
 	};
 
 	Application* CreateApplication();

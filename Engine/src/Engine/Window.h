@@ -31,6 +31,8 @@ namespace Engine {
 		virtual void SetEventCallback(const EventCallbackFn& callback) = 0;
 		virtual void SetVsync(bool enabled) = 0;
 		virtual bool IsVsync() const = 0;
+		virtual void SetClipboard(const char* text) const = 0;
+		virtual const char* GetClipboard() const = 0;
 
 		static Window* Create(const WindowProps& props = WindowProps());
 
