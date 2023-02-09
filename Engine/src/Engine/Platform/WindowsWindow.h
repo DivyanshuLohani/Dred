@@ -22,6 +22,7 @@ namespace Engine{
 		bool IsVsync() const override;
 		void SetClipboard(const char* text) const override;
 		const char* GetClipboard() const override;
+		void* GetNativeWindow() const override;
 
 	private:
 		virtual void Init(const WindowProps& props);

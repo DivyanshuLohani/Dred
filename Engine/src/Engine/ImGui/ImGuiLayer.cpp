@@ -169,7 +169,7 @@ namespace Engine {
 	{
 		ImGuiIO& io = ImGui::GetIO();
 		int keyCode = event.GetKeyCode();
-		EN_CORE_WARN(keyCode);
+
 		if (keyCode > 0 && 0x10000) {
 			io.AddInputCharacter((unsigned short)keyCode);
 		}

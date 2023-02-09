@@ -46,6 +46,12 @@
     <ClInclude Include="src\Engine\ImGui\ImGuiLayer.h">
       <Filter>Engine\ImGui</Filter>
     </ClInclude>
+    <ClInclude Include="src\Engine\Input.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\KeyCodes.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
     <ClInclude Include="src\Engine\Layers\Layer.h">
       <Filter>Engine\Layers</Filter>
     </ClInclude>
@@ -57,6 +63,9 @@
     </ClInclude>
     <ClInclude Include="src\Engine\Platform\OpenGL\imgui_impl_opengl3.h">
       <Filter>Engine\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Platform\WindowsInput.h">
+      <Filter>Engine\Platform</Filter>
     </ClInclude>
     <ClInclude Include="src\Engine\Platform\WindowsWindow.h">
       <Filter>Engine\Platform</Filter>
@@ -84,6 +93,9 @@
     </ClCompile>
     <ClCompile Include="src\Engine\Platform\OpenGL\imgui_impl_opengl3.cpp">
       <Filter>Engine\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Platform\WindowsInput.cpp">
+      <Filter>Engine\Platform</Filter>
     </ClCompile>
     <ClCompile Include="src\Engine\Platform\WindowsWindow.cpp">
       <Filter>Engine\Platform</Filter>

@@ -161,10 +161,13 @@
     <ClInclude Include="src\Engine\Events\KeyEvent.h" />
     <ClInclude Include="src\Engine\Events\MouseEvent.h" />
     <ClInclude Include="src\Engine\ImGui\ImGuiLayer.h" />
+    <ClInclude Include="src\Engine\Input.h" />
+    <ClInclude Include="src\Engine\KeyCodes.h" />
     <ClInclude Include="src\Engine\Layers\Layer.h" />
     <ClInclude Include="src\Engine\Layers\LayerStack.h" />
     <ClInclude Include="src\Engine\Log.h" />
     <ClInclude Include="src\Engine\Platform\OpenGL\imgui_impl_opengl3.h" />
+    <ClInclude Include="src\Engine\Platform\WindowsInput.h" />
     <ClInclude Include="src\Engine\Platform\WindowsWindow.h" />
     <ClInclude Include="src\Engine\Window.h" />
     <ClInclude Include="src\pre.h" />
@@ -176,6 +179,7 @@
     <ClCompile Include="src\Engine\Layers\LayerStack.cpp" />
     <ClCompile Include="src\Engine\Log.cpp" />
     <ClCompile Include="src\Engine\Platform\OpenGL\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="src\Engine\Platform\WindowsInput.cpp" />
     <ClCompile Include="src\Engine\Platform\WindowsWindow.cpp" />
     <ClCompile Include="src\pre.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>

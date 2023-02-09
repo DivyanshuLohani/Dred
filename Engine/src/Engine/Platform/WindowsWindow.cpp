@@ -4,6 +4,7 @@
 #include "Engine/Events/ApplicationEvents.h"
 #include "Engine/Events/KeyEvent.h"
 #include "Engine/Events/MouseEvent.h"
+#include "Engine/Input.h"
 
 #include <glad/glad.h>
 
@@ -197,6 +198,11 @@ namespace Engine{
 	const char* WindowsWindow::GetClipboard() const
 	{
 		return glfwGetClipboardString(m_Window);
+	}
+
+	void* WindowsWindow::GetNativeWindow() const
+	{
+		return m_Window;
 	}
 
 	void WindowsWindow::ShutDown()

@@ -55,7 +55,7 @@ namespace Engine {
 	{
 		m_layerStack.PushOverlay(layer);
 	}
-	
+
 	bool Application::OnWindowClose(WindowCloseEvent& e) 
 	{
 		running = false;
