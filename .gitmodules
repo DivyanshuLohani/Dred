@@ -1,9 +1,9 @@
-[submodule "Engine/vendor/spdlog"]
-	path = Engine/vendor/spdlog
+[submodule "Dred/vendor/GLFW"]
+	path = Dred/vendor/GLFW
+	url = https://github.com/TheCherno/GLFW
+[submodule "Dred/vendor/spdlog"]
+	path = Dred/vendor/spdlog
 	url = https://github.com/gabime/spdlog
-[submodule "Engine/vendor/GLFW"]
-	path = Engine/vendor/GLFW
-	url = https://github.com/TheCherno/glfw
-[submodule "Engine/vendor/imgui"]
-	path = Engine/vendor/imgui
+[submodule "Dred/vendor/imgui"]
+	path = Dred/vendor/imgui
 	url = https://github.com/TheCherno/imgui.git

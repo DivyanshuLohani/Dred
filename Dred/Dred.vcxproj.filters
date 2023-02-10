@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Dred">
+      <UniqueIdentifier>{A44B847C-9082-850D-396F-6B102585010F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dred\Events">
+      <UniqueIdentifier>{08F7032F-74AC-7C24-FDA0-76FB69557328}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dred\ImGui">
+      <UniqueIdentifier>{CEEBA7E2-BAA3-E92F-23AB-C28B0F828420}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dred\Layers">
+      <UniqueIdentifier>{E3E1E63D-4F97-5F33-D88B-590A44405637}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dred\Platform">
+      <UniqueIdentifier>{78E0FB1B-E4A0-7752-ADDB-C0CF195BBC2E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dred\Platform\OpenGL">
+      <UniqueIdentifier>{AC5218AF-98E1-A178-4100-B6732D6EB21E}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Dred.h" />
+    <ClInclude Include="src\Dred\Application.h">
+      <Filter>Dred</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Dred\Core.h">
+      <Filter>Dred</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Dred\EntryPoint.h">
+      <Filter>Dred</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Dred\Events\ApplicationEvents.h">
+      <Filter>Dred\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Dred\Events\Events.h">
+      <Filter>Dred\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Dred\Events\KeyEvent.h">
+      <Filter>Dred\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Dred\Events\MouseEvent.h">
+      <Filter>Dred\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Dred\ImGui\ImGuiLayer.h">
+      <Filter>Dred\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Dred\Input.h">
+      <Filter>Dred</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Dred\KeyCodes.h">
+      <Filter>Dred</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Dred\Layers\Layer.h">
+      <Filter>Dred\Layers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Dred\Layers\LayerStack.h">
+      <Filter>Dred\Layers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Dred\Log.h">
+      <Filter>Dred</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Dred\Platform\OpenGL\imgui_impl_opengl3.h">
+      <Filter>Dred\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Dred\Platform\WindowsInput.h">
+      <Filter>Dred\Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Dred\Platform\WindowsWindow.h">
+      <Filter>Dred\Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Dred\Window.h">
+      <Filter>Dred</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pre.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Dred\Application.cpp">
+      <Filter>Dred</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Dred\ImGui\ImGuiLayer.cpp">
+      <Filter>Dred\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Dred\Layers\Layer.cpp">
+      <Filter>Dred\Layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Dred\Layers\LayerStack.cpp">
+      <Filter>Dred\Layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Dred\Log.cpp">
+      <Filter>Dred</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Dred\Platform\OpenGL\imgui_impl_opengl3.cpp">
+      <Filter>Dred\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Dred\Platform\WindowsInput.cpp">
+      <Filter>Dred\Platform</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Dred\Platform\WindowsWindow.cpp">
+      <Filter>Dred\Platform</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pre.cpp" />
+  </ItemGroup>
+</Project>

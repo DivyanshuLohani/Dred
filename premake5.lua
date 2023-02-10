@@ -1,4 +1,4 @@
-workspace "Engine"
+workspace "Dred"
 architecture "x64"
 
 configurations { "Debug",
@@ -9,23 +9,23 @@ configurations { "Debug",
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeDir = {}
-IncludeDir["GLFW"]  = "Engine/vendor/GLFW/include"
-IncludeDir["Glad"]  = "Engine/vendor/Glad/include"
-IncludeDir["ImGui"] = "Engine/vendor/imgui"
+IncludeDir["GLFW"]  = "Dred/vendor/GLFW/include"
+IncludeDir["Glad"]  = "Dred/vendor/Glad/include"
+IncludeDir["ImGui"] = "Dred/vendor/imgui"
 
-include "Engine/vendor/GLFW"
-include "Engine/vendor/Glad"
-include "Engine/vendor/imgui"
+include "Dred/vendor/GLFW"
+include "Dred/vendor/Glad"
+include "Dred/vendor/imgui"
 
-project "Engine"
-    location "Engine"
+project "Dred"
+    location "Dred"
     kind "SharedLib"
     language "C++"
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
     pchheader "pre.h"
-	pchsource "Engine/src/pre.cpp"
+	pchsource "Dred/src/pre.cpp"
 
     files {
         "%{prj.name}/src/**.h",
@@ -34,7 +34,7 @@ project "Engine"
 
     includedirs {
         "%{prj.name}/src/",
-        "%{prj.name}/src/Engine/",
+        "%{prj.name}/src/Dred/",
         "%{prj.name}/vendor/spdlog/include/",
         "%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
@@ -55,8 +55,8 @@ project "Engine"
         systemversion "latest"
 
         defines {
-            "ENGINE_WINDOWS_BUILD",
-            "ENGINE_DLL_BUILD",
+            "DRED_WINDOWS_BUILD",
+            "DRED_DLL_BUILD",
             "GLFW_INCLUDE_NONE"
         }
 
@@ -65,15 +65,15 @@ project "Engine"
         }
 
     filter "configurations:Debug"
-        defines "EN_DEBUG"
+        defines "DD_DEBUG"
         symbols "On"
 
     filter "configurations:Release"
-        defines "EN_RELEASE"
+        defines "DD_RELEASE"
         optimize "On"
 
     filter "configurations:Dist"
-        defines "EN_DIST"
+        defines "DD_DIST"
         optimize "On"
 
 project "Sandbox"
@@ -90,12 +90,12 @@ project "Sandbox"
     }
 
     includedirs {
-        "Engine/vendor/spdlog/include/",
-        "Engine/src"
+        "Dred/vendor/spdlog/include/",
+        "Dred/src"
     }
 
     links {
-        "Engine"
+        "Dred"
     }
 
     filter "system:windows"
@@ -104,18 +104,18 @@ project "Sandbox"
         systemversion "latest"
 
         defines {
-            "ENGINE_WINDOWS_BUILD",
+            "DRED_WINDOWS_BUILD",
         }
 
 
     filter "configurations:Debug"
-        defines "EN_DEBUG"
+        defines "DD_DEBUG"
         symbols "On"
 
     filter "configurations:Release"
-        defines "EN_RELEASE"
+        defines "DD_RELEASE"
         optimize "On"
 
     filter "configurations:Dist"
-        defines "EN_DIST"
+        defines "DD_DIST"
         optimize "On"

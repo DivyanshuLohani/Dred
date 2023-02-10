@@ -1,11 +1,11 @@
-#include "Engine.h"
+#include "Dred.h"
 
 
-class Sandbox : public Engine::Application
+class Sandbox : public Dred::Application
 {
 public:
     Sandbox() {
-        PushOverlay(new Engine::ImGuiLayer());
+        PushOverlay(new Dred::ImGuiLayer());
     }
     ~Sandbox() {
 
@@ -15,6 +15,6 @@ public:
 };
 
 
-Engine::Application* Engine::CreateApplication() {
+Dred::Application* Dred::CreateApplication() {
     return new Sandbox();
 }
