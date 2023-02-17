@@ -3,6 +3,7 @@
 #include "Window.h";
 #include "Dred/Events/ApplicationEvents.h";
 #include "Dred/Layers/LayerStack.h";
+#include "Dred/ImGui/ImGuiLayer.h";
 
 namespace Dred {
 
@@ -23,13 +24,18 @@ namespace Dred {
 		inline static Application& Get() { return *s_Instance; }
 		inline Window& GetWindow() { return *m_Window; };
 	private:
+		static Application* s_Instance;
+	
 		std::unique_ptr<Window> m_Window;
+		ImGuiLayer* m_imGuiLayer;
 		bool running = true;
-		bool OnWindowClose(WindowCloseEvent& e);
 		LayerStack m_layerStack;
 
+
 	private:
-		static Application* s_Instance;
+		bool OnWindowClose(WindowCloseEvent& e);
+
+	
 	};
 
 	Application* CreateApplication();

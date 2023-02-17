@@ -14,23 +14,13 @@ namespace Dred {
         ~ImGuiLayer();
 
 
-        void OnAttach();
-        void OnDetach();
-        void OnUpdate();
-        void OnEvent(Event& event);
-    private:
-        // Mouse
-        bool OnMouseButtonPressed(MouseButtonPressedEvent& event);
-        bool OnMouseButtonReleased(MouseButtonReleasedEvent& event);
-        bool OnMouseScrolled(MouseScrolledEvent& event);
-        bool OnMouseMoved(MouseMovedEvent& event);
-        // Keyboard
-        bool OnKeyPressed(KeyPressedEvent& event);
-        bool OnKeyReleased(KeyReleaseEvent& event);
-        bool OnKeyTyped(KeyTypedEvent& event);
-        // Window
-        bool OnWindowResize(WindowResizeEvent& event);
+        virtual void OnAttach() override;
+        virtual void OnDetach() override;
+        virtual void OnImGuiRender() override;
 
+        void Begin();
+        void End();
+        
     private:
         float m_time = 0;
     };

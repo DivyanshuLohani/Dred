@@ -15,6 +15,8 @@ namespace Dred {
 		m_Window = std::unique_ptr<Window>(Window::Create());
 		m_Window->SetEventCallback(DD_BIND_EVENT(Application::OnEvent));
 
+		m_imGuiLayer = new ImGuiLayer();
+		PushOverlay(m_imGuiLayer);
 	}
 	Application::~Application() {
 
@@ -27,6 +29,12 @@ namespace Dred {
 			for (Layer* layer : m_layerStack) {
 				layer->OnUpdate();
 			}
+
+			m_imGuiLayer->Begin();
+			for (Layer* layer : m_layerStack) {
+				layer->OnImGuiRender();
+			}
+			m_imGuiLayer->End();
 
 			m_Window->OnUpdate();
 			

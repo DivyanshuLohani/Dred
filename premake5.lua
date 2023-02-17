@@ -12,6 +12,7 @@ IncludeDir = {}
 IncludeDir["GLFW"]  = "Dred/vendor/GLFW/include"
 IncludeDir["Glad"]  = "Dred/vendor/Glad/include"
 IncludeDir["ImGui"] = "Dred/vendor/imgui"
+IncludeDir["glm"] = "Dred/vendor/glm"
 
 include "Dred/vendor/GLFW"
 include "Dred/vendor/Glad"
@@ -19,17 +20,20 @@ include "Dred/vendor/imgui"
 
 project "Dred"
     location "Dred"
-    kind "SharedLib"
+    kind "StaticLib"
     language "C++"
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+    staticruntime "on"
 
     pchheader "pre.h"
 	pchsource "Dred/src/pre.cpp"
 
     files {
         "%{prj.name}/src/**.h",
-        "%{prj.name}/src/**.cpp"
+        "%{prj.name}/src/**.cpp",
+        "%{prj.name}/vendor/glm/glm/**.hpp",
+        "%{prj.name}/vendor/glm/glm/**.ini"
     }
 
     includedirs {
@@ -38,7 +42,8 @@ project "Dred"
         "%{prj.name}/vendor/spdlog/include/",
         "%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
-		"%{IncludeDir.ImGui}"
+		"%{IncludeDir.ImGui}",
+		"%{IncludeDir.glm}"
     }
 
     links 
@@ -91,7 +96,9 @@ project "Sandbox"
 
     includedirs {
         "Dred/vendor/spdlog/include/",
-        "Dred/src"
+        "Dred/src",
+        "Dred/vendor",
+        "%{IncludeDir.glm}"
     }
 
     links {
