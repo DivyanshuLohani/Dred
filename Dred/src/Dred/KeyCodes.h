@@ -1,4 +1,5 @@
 #pragma once
+/// Dred Specific key codes
 
 /// glfw.h keycodes
 #define DRED_KEY_SPACE              32

@@ -6,9 +6,10 @@
 #include "Dred/ImGui/ImGuiLayer.h";
 
 namespace Dred {
-
-
-
+	/// <summary>
+	/// Base application class client application class should inherit from this
+	/// to make the engine logic work with their app
+	/// </summary>
 	class DRED_API Application
 	{
 	public:
@@ -28,7 +29,7 @@ namespace Dred {
 	
 		std::unique_ptr<Window> m_Window;
 		ImGuiLayer* m_imGuiLayer;
-		bool running = true;
+		bool m_running = true;
 		LayerStack m_layerStack;
 
 

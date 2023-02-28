@@ -3,6 +3,11 @@
 #include "Core.h"
 
 namespace Dred {
+	/// <summary>
+	///  Base class for input this works by implimenting a function with XXXImpl(Args)
+	/// The client can directly call normal public class and this handles the class which
+	/// platform the engine is being used on. 
+	/// </summary>
 	class DRED_API Input {
 	public:
 		inline static bool IsKeyPressed(int keyCode) { return s_instance->IsKeyPressedImpl(keyCode); }

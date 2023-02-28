@@ -10,6 +10,8 @@ namespace Dred
 	void Log::Init()
 	{
 
+		// Intialize the looger
+		// Set Pattern " [00:00:00][INFO][ENGINE]  message log "
 		spdlog::set_pattern("%^[%H:%M:%S] [%l]%$ %n: %v");
 		s_CoreLogger = spdlog::stdout_color_mt("DRED");
 		s_CoreLogger->set_level(spdlog::level::trace);

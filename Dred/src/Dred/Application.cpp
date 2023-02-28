@@ -10,7 +10,15 @@ namespace Dred {
 
 	Application::Application() 
 	{
+		/// <summary>
+		///  Singleton pattern is used to make this 
+		/// Application class because we don't need 
+		/// another application class
+		/// </summary>
+
+		DD_ASSERT(s_Instance == null, "Assertion failed window already creadted");
 		s_Instance = this;
+
 
 		m_Window = std::unique_ptr<Window>(Window::Create());
 		m_Window->SetEventCallback(DD_BIND_EVENT(Application::OnEvent));
@@ -22,7 +30,8 @@ namespace Dred {
 
 	}
 	void Application::Run() {
-		while (running) {
+		/// Main application loop here
+		while (m_running) {
 			glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 			glClear(GL_COLOR_BUFFER_BIT);
 
@@ -43,6 +52,7 @@ namespace Dred {
 
 	void Application::OnEvent(Event& e)
 	{
+		// Events dispatching for the winow
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<WindowCloseEvent>(DD_BIND_EVENT(Application::OnWindowClose));
 
@@ -50,8 +60,6 @@ namespace Dred {
 			(*--it)->OnEvent(e);
 			if (e.Handled) break;
 		}
-
-		//EN_CORE_TRACE(e.ToString());
 	}
 
 	void Application::PushLayer(Layer* layer)
@@ -66,7 +74,7 @@ namespace Dred {
 
 	bool Application::OnWindowClose(WindowCloseEvent& e) 
 	{
-		running = false;
+		m_running = false;
 		return true;
 	}
 	

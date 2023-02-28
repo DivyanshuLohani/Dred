@@ -6,7 +6,10 @@
 
 namespace Dred
 {
-
+	/// <summary>
+	/// Window props contains the normal items such as title, width and height 
+	/// this is just a utitlity struct
+	/// </summary>
 	struct WindowProps
 	{
 		std::string Title;
@@ -16,7 +19,11 @@ namespace Dred
 			unsigned int width = 1280,
 			unsigned int height = 720) : Title(title), Width(width), Height(height) {}
 	};
-
+	/// <summary>
+	/// Base window class which all platform classes need to inherit to be able to be handled properly
+	/// This contians general functions like width and height these functions should be implemented by 
+	/// the platforms for this class to work properly 
+	/// </summary>
 	class DRED_API Window
 	{
 	public:

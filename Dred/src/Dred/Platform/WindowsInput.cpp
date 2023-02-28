@@ -4,7 +4,9 @@
 #include "Dred/Application.h"
 #include "WindowsInput.h"
 
-
+/// <summary>
+/// All Input for the Windows
+/// </summary>
 namespace Dred {
     Input* Input::s_instance = new WindowsInput();
 
